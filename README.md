@@ -24,10 +24,12 @@ Norther Light Airlines (NLA) es una aerolinea ficticia que realiza vuelos locale
 - DER Modelado para usar en Power BI
 - Generar plan de metricas
 - Elaborar reporte en Power BI para responder los objetivos de negocio
-- Descripcion de los findings
+- Conclusiones
+- Oportunidades
 
+## Desarrollo del proyecto
 
-## Sobre el dataset
+### Sobre el dataset
 
 El dataset fue tomado del repo de [Maven Analytics](https://www.mavenanalytics.io/data-playground) e incluye 2 archivos CSV
 
@@ -60,3 +62,21 @@ El dataset fue tomado del repo de [Maven Analytics](https://www.mavenanalytics.i
 |     | Points Accumulated | Puntos acumulados en el periodo |
 |     | Points Redeemed | Puntos canjeados en el periodo |
 |     | Dollar Cost Points Redeemed | Valor en dolares equivalente a los puntos canjeados en el periodo |
+
+### Organizacion de los datos
+
+La idea en el proyecto es organizar los datos bajo una arquitectura tipo Medallion (capas Bronze, Silver y Gold), como se represente en el sgte esquema:
+
+<<<<<<<<<<<<<   Insertar aca  grafico del esquema Bronze-Silver-Gold    >>>>>>>>>>>>>>>>>>>>>>>>>>
+
+Con tal fin, se crean en BigQuery los respectivos datasets  _Loyalty-bronze_ y _Loyalty_silver_ para contener las tablas en sus respectivas capas.
+
+<p style="color: red;"> Welcome to freeCodeCamp! </p>
+
+<i> <span style="color:red">
+    Text content
+</span></i>
+
+### Carga de datos
+
+Se procede a cargar el dataset en Bigquery sobre la capa 
