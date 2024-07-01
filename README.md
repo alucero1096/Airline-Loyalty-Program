@@ -27,6 +27,8 @@ Norther Light Airlines (NLA) es una aerolinea ficticia que realiza vuelos locale
 - Conclusiones
 - Oportunidades
 
+-----
+
 ## Desarrollo del proyecto
 
 ### Sobre el dataset
@@ -63,6 +65,8 @@ El dataset fue tomado del repo de [Maven Analytics](https://www.mavenanalytics.i
 |     | Points Redeemed | Puntos canjeados en el periodo |
 |     | Dollar Cost Points Redeemed | Valor en dolares equivalente a los puntos canjeados en el periodo |
 
+-----
+
 ### Organizacion de los datos
 
 La idea en el proyecto es estructurar los datos bajo una arquitectura Medallion (capas Bronze, Silver y Gold), como se represente en el sgte esquema:
@@ -71,6 +75,8 @@ La idea en el proyecto es estructurar los datos bajo una arquitectura Medallion 
 
 Con tal fin, se crean en BigQuery los respectivos datasets  _Loyalty-bronze_ y _Loyalty_silver_ para contener las tablas en sus respectivas capas.
 
+-----
+
 ### Carga de datos
 
 Se procede a crear las tablas en Bigquery sobre la capa Bronze, utilizando la herramienta de creacion de tablas de Bigquery haciendo un upload de los archivos CSV.
@@ -78,6 +84,8 @@ Se procede a crear las tablas en Bigquery sobre la capa Bronze, utilizando la he
 ![Tabla flight-activity cargada en dataset bronze](https://github.com/alucero1096/Airline-Loyalty-Program/blob/main/assets/screenshots/flight-activity-bronze.png "Tabla flight-activity cargada en dataset bronze")
 
 ![Tabla loyalty-history cargada en dataset bronze](https://github.com/alucero1096/Airline-Loyalty-Program/blob/main/assets/screenshots/loyalty-history-bronze.png "Tabla loyalty-history cargada en dataset bronze")
+
+-----
 
 ### ETL en capa Silver
 
@@ -145,6 +153,8 @@ Con esta estructura de tablas se procede a generar lo que seria el DER prelimina
 
 ![ ](https://github.com/alucero1096/Airline-Loyalty-Program/blob/main/assets/screenshots/DER-capa-silver.png "DER en capa Silver")
 
+-----
+
 ### Modelado en Power BI
 
 Primero se procede a realizar la conexion desde Power BI para que tome las tablas residentes en capa Silver de Bigquery.
@@ -175,6 +185,7 @@ Resultando de esta manera el DER que constituye la capa Gold del modelo, como se
 
 ![ ](https://github.com/alucero1096/Airline-Loyalty-Program/blob/main/assets/screenshots/DER-capa-gold.png "DER capa Gold en PBI")
 
+-----
 
 ### Generacion de Metricas
 
@@ -257,6 +268,7 @@ sumPuntosRedeem = CALCULATE(
     USERELATIONSHIP(FFlightActivity[fecha_actividad],DimCalendar[Date])
 )
 ```
+-----
 
 ### Elaboracion del Reporte en PowerBI
 
@@ -279,11 +291,57 @@ Se utilizaron iconos de uso libre de la pagina [Flaticon](https://www.flaticon.c
 
 ![ ](https://github.com/alucero1096/Airline-Loyalty-Program/blob/main/assets/screenshots/PBI-pagina-impacto.png "Reporte - Pagina Impacto")
 
+En general se utilizaron las visualizaciones que provee por defecto PowerBI, salvo la visualizacion Tornado que se importo en la herramienta para visualizar el contraste de altas y bajas en los periodos Año.
+
+![ ](https://github.com/alucero1096/Airline-Loyalty-Program/blob/main/assets/screenshots/PBI-tornado-viz.png "Visualizacion Tornado")
+
+#### Hack sobre las visualizaciones Tarjetas
+
+En algunas visualizaciones de tipo Tarjeta, se utilizo la opcion de agregar etiquetas de referencia para contrastar valores y mostrar diferencia porcentual destacada por formato con colores rojo/verde segun valor porcentaje.
+
+![ ](https://github.com/alucero1096/Airline-Loyalty-Program/blob/main/assets/screenshots/PBI-tarjeta-viz.png "Viz tipo Tarjeta")
+
+En este caso, para la tarjeta que se muestra arriba, la proporcion porcentual se calculo definiendo la metrica que se muestra a continuacion, que retorna un texto con el valor del porcentaje y el caracter ↑ ó ↓ segun corresponda si la proporcion es positiva o negativa, 
+
+```dax
+%YoY_QVuelos = 
+VAR _up_arrow = UNICHAR(129137)
+VAR _down_arrow = UNICHAR(129139)
+VAR _porcentaje = ROUND(
+    DIVIDE(
+        [QVuelos_2018] - [QVuelos_2017], [QVuelos_2017], 0
+        ) * 100,
+1)
+RETURN 
+IF (_porcentaje < 0,
+ABS(_porcentaje) & "% " & _down_arrow,
+ _porcentaje & "% " & _up_arrow)
+```
+
+Y para dar formato de color a los valores, tambien se definio la metrica a continuacion y se aplico como formato condicional
+
+```dax
+%Color_QVuelos = 
+VAR _porcentaje = ROUND(
+    DIVIDE(
+        [QVuelos_2018] - [QVuelos_2017], [QVuelos_2017], 0
+        ) * 100,
+1)
+RETURN 
+IF (_porcentaje < 0, "red", "green")
+```
+
+-----
 
 ### Conclusiones 
 
+-----
 
 ### Oportunidades de mejora
+
+- Se podrian suponer algunos targets que el negocio quisiera alcanzar con la campaña de promocion (por ejemplo #esperado de nuevos miembros) para mostrarlos como KPIs
+- A nivel demografia de los miembros, realizar analisis por salarios (por ejemplo definiendo grupos por nivel de ingresos)
+- 
 
 
 
