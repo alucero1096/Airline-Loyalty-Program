@@ -87,6 +87,14 @@ Se procede a crear las tablas en Bigquery sobre la capa Bronze, utilizando la he
 
 -----
 
+### Curado de datos
+
+Se realizaron diversos controles para revisar la calidad de los datos. La tabla _flight-activity_ no presenta problemas en sus datos.
+
+En cuanto a la tabla _loyalty-history_, se encontro que para la columna _Salary_ se encontraron 4,238 filas en nulo (25% del total). No se adopto ninguna estrategia para su tratamiento, puesto que dicho atributo se dejo fuera del analisis de este proyecto.
+
+-----
+
 ### ETL en capa Silver
 
 Luego se procede a la generacion de las tablas en la capa Silver, para lo cual se generaron sentencias DDL. Para detalles referirse al [script de creacion de tablas en Silver](https://github.com/alucero1096/Airline-Loyalty-Program/blob/main/assets/create_tables_silver.sql)
@@ -389,7 +397,7 @@ Verano y Primavera son las epocas de ano en la que los nuevos miembros ingresado
 ### Oportunidades de mejora
 
 - Se podrian suponer algunos targets que el negocio quisiera alcanzar con la campaña de promocion (por ejemplo #esperado de nuevos miembros) para mostrarlos como KPIs
-- A nivel demografia de los miembros, realizar analisis por salarios (por ejemplo definiendo grupos por nivel de ingresos)
+- A nivel demografia de los miembros, realizar analisis por salarios (por ejemplo definiendo grupos por nivel de ingresos). Se deberia adoptar alguna estrategia para el curado de estos datos
 - 
 
 
