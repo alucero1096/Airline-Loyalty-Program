@@ -258,4 +258,32 @@ sumPuntosRedeem = CALCULATE(
 )
 ```
 
+### Elaboracion del Reporte en PowerBI
+
+El reporte se estructuro en 5 paginas, 1 como portada, y el resto para responder a las preguntas del negocio
+
+| Pagina | Descripcion  |
+| --- | --- |
+| Inicio | Portada |
+| Membresia | Altas en campaña, Historico Membresia, Comparativo de altas en campaña vs periodos anteriores |
+| Retencion | Bajas en campaña, Historico de bajas, Comparativo bajas en 2018 vs 2017, Ratio de Retencion de miembros |
+| Demografia | Visualizaciones de Altas segun genero, estado civil, tipo membresia, nivel educativo, ubicacion geografica |
+| Impacto | Ratio de contribucion de la campaña en las reservas de vuelos, facturado total, canje de puntos |
+
+Se diseño en Figma el background utilizado en cada pagina
+
+Para la navegacion entre paginas se utilizaron botones con acciones para direccionar a las paginas correspondientes.
+
+Se utilizaron iconos de uso libre de la pagina [Flaticon](https://www.flaticon.com/)
+
+
+![ ](https://github.com/alucero1096/Airline-Loyalty-Program/blob/main/assets/screenshots/PBI-pagina-impacto.png "Reporte - Pagina Impacto")
+
+
+### Conclusiones 
+
+
+### Oportunidades de mejora
+
+
 
