@@ -29,11 +29,6 @@ Norther Light Airlines (NLA) es una aerolinea ficticia que realiza vuelos locale
 
 -----
 
-<html>
-<body>
-<iframe title="Programa de Membresia" width="1280" height="720" src="https://app.powerbi.com/view?r=eyJrIjoiMjBjZjA4NDgtYmI1Mi00YTIxLWE1MWQtNDg0NTcxMjZmYjUyIiwidCI6ImVlYjk3NWExLTNhYTYtNGU3NC04MzAxLWFkMTQxYTdlZmIxOSIsImMiOjR9" frameborder="0" allowFullScreen="true"></iframe>
-</body>
-</html>
 
 ## Desarrollo del proyecto
 
@@ -346,11 +341,13 @@ RETURN
 IF (_porcentaje < 0, "red", "green")
 ```
 
-<html>
-<body>
-<iframe title="Programa de Membresia" width="600" height="373.5" src="https://app.powerbi.com/view?r=eyJrIjoiMjBjZjA4NDgtYmI1Mi00YTIxLWE1MWQtNDg0NTcxMjZmYjUyIiwidCI6ImVlYjk3NWExLTNhYTYtNGU3NC04MzAxLWFkMTQxYTdlZmIxOSIsImMiOjR9" frameborder="0" allowFullScreen="true"></iframe>
-</body>
-</html>
+
+-----
+
+### Acceso al Reporte
+
+[Reporte Programa de Membresias](https://app.powerbi.com/view?r=eyJrIjoiMjBjZjA4NDgtYmI1Mi00YTIxLWE1MWQtNDg0NTcxMjZmYjUyIiwidCI6ImVlYjk3NWExLTNhYTYtNGU3NC04MzAxLWFkMTQxYTdlZmIxOSIsImMiOjR9)
+
 
 -----
 
