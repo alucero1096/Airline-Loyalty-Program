@@ -71,7 +71,8 @@ El dataset fue tomado del repo de [Maven Analytics](https://www.mavenanalytics.i
 
 La idea en el proyecto es estructurar los datos bajo una arquitectura Medallion (capas Bronze, Silver y Gold), como se represente en el sgte esquema:
 
-<<<<<<<<<<<<<   Insertar aca  grafico del esquema Bronze-Silver-Gold    >>>>>>>>>>>>>>>>>>>>>>>>>>
+![ ](https://github.com/alucero1096/Programa-de-Membresias/blob/main/assets/screenshots/loyalty-medallion-architecture.png "Architectura Medallion")
+
 
 Con tal fin, se crean en BigQuery los respectivos datasets  _Loyalty-bronze_ y _Loyalty_silver_ para contener las tablas en sus respectivas capas.
 
