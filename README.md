@@ -151,3 +151,111 @@ Primero se procede a realizar la conexion desde Power BI para que tome las tabla
 
 ![ ](https://github.com/alucero1096/Airline-Loyalty-Program/blob/main/assets/screenshots/PBI-load-data-from-bigquery.png "Conexion y Carga de datos en PBI")
 
+Se genera una dimension Calendario _DimCalendar_ utilizando DAX, y se le agregan columnas de Año, Mes y Cuatrimeste:
+
+```DAX
+DimCalendar = CALENDAR(MIN(DimCustomers[fecha_enrollment]),MAX(DimCustomers[fecha_enrollment]))
+Año = YEAR(DimCalendar[Date])
+Mes = MONTH(DimCalendar[Date])
+Trimestre = CONCATENATE("Q",QUARTER(DimCalendar[Date]))
+```
+
+Sobre la dimension _DimCustomers_ se crea el campo _Antiguedad_ mediante DAX:
+
+```DAX
+Antiguedad = DATEDIFF(DimCustomers[fecha_enrollment],IF(DimCustomers[fecha_cancelacion] = BLANK(),TODAY(),DimCustomers[fecha_cancelacion]),MONTH)
+```
+
+Luego se procede a la creacion de las relaciones entre tablas, resultando de la sgte forma:
+
+![ ](https://github.com/alucero1096/Airline-Loyalty-Program/blob/main/assets/screenshots/PBI-manage-relationships.png "Creacion de relaciones entre tablas")
+
+
+Resultando de esta manera el DER que constituye la capa Gold del modelo, como se muestra a continuacion:
+
+![ ](https://github.com/alucero1096/Airline-Loyalty-Program/blob/main/assets/screenshots/DER-capa-gold.png "DER capa Gold en PBI")
+
+
+### Generacion de Metricas
+
+Se parte de la generacion del [Plan de Metricas](https://github.com/alucero1096/Airline-Loyalty-Program/blob/main/assets/Loyalty_PlandeMetricas.xlsx), a partir del cual se crearan las correspondientes metricas en PowerBI
+
+Como buena practica, se genero la tabla _Metricas_ para centralizar el repositorio de metricas, y se organizaron en carpetas, como se muestra ejemplo a continuacion:
+
+![ ](https://github.com/alucero1096/Airline-Loyalty-Program/blob/main/assets/screenshots/PBI-metricas.png "Algunas metricas creadas para el reporte")
+
+
+A modo de ejemplos, se detallan algunas metricas creadas para el reporte:
+
+_Metrica para el calculo de nuevos miembros de la membresia_
+```dax
+QAltaPromo = 
+CALCULATE(
+    [QMiembros],
+    DimCustomers[Enrollment_Year] <> BLANK(),
+    DimCustomers[tipo_enrollment] = "P"
+)
+```
+
+_Metrica para el calculo de bajas en la membresia durante el periodo de la campaña_
+```dax
+QBajasPromo = 
+CALCULATE(
+    [QMiembros],
+    USERELATIONSHIP(DimCustomers[fecha_cancelacion],DimCalendar[Date]),
+    DimCustomers[Cancellation_Year] = 2018,
+    DimCustomers[Cancellation_Month] IN {2,3,4}
+)
+```
+
+_Metrica para calcular acumulado mensual del Neto de miembros en el periodo_
+```dax
+QNeto_Accum = 
+VAR _Fecha_Maxima = CALCULATE( MAX(DimCustomers[fecha_enrollment]), ALLSELECTED(DimCalendar[Date]) )
+VAR _nueva = EOMONTH( _Fecha_Maxima, 0 )
+VAR _Fecha_Inicio = DATE(YEAR(2012), 1, 1)
+VAR _Valor =
+CALCULATE( [QNeto]
+    , FILTER( ALL(DimCalendar[Date])
+        , DimCalendar[Date] >= _Fecha_Inicio && DimCalendar[Date] <= _nueva )
+)
+
+RETURN
+_Valor
+```
+
+_Metrica para calcular relacion porcentual entre Total facturado año 2018 y Total facturado año 2017_
+```dax
+%YoY TotalCLV = 
+VAR _up_arrow = UNICHAR(129137)
+VAR _down_arrow = UNICHAR(129139)
+VAR _porcentaje = ROUND(
+    DIVIDE(
+        [TotalCLV_LastYear] - [TotalCLV_PrevY], [TotalCLV_PrevY], 0
+        ) * 100,
+1)
+RETURN 
+IF (_porcentaje < 0,
+ABS(_porcentaje) & "% " & _down_arrow,
+ _porcentaje & "% " & _up_arrow)
+```
+
+_Metrica para el calculo de suma total de vuelos en un periodo_
+```dax
+QVuelos = 
+CALCULATE(
+    [TotalVuelos],
+    USERELATIONSHIP(FFlightActivity[fecha_actividad],DimCalendar[Date])
+)
+```
+
+_Metrica para calculo de suma total de puntos canjeados durante el periodo de la campaña_
+```dax
+sumPuntosRedeem = CALCULATE(
+    [TotalPuntosRedeemed],
+    DimCustomers[tipo_enrollment] = "P",
+    USERELATIONSHIP(FFlightActivity[fecha_actividad],DimCalendar[Date])
+)
+```
+
+
