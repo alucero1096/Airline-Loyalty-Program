@@ -65,18 +65,15 @@ El dataset fue tomado del repo de [Maven Analytics](https://www.mavenanalytics.i
 
 ### Organizacion de los datos
 
-La idea en el proyecto es organizar los datos bajo una arquitectura tipo Medallion (capas Bronze, Silver y Gold), como se represente en el sgte esquema:
+La idea en el proyecto es estructurar los datos bajo una arquitectura Medallion (capas Bronze, Silver y Gold), como se represente en el sgte esquema:
 
 <<<<<<<<<<<<<   Insertar aca  grafico del esquema Bronze-Silver-Gold    >>>>>>>>>>>>>>>>>>>>>>>>>>
 
 Con tal fin, se crean en BigQuery los respectivos datasets  _Loyalty-bronze_ y _Loyalty_silver_ para contener las tablas en sus respectivas capas.
 
-<p style="color: red;"> Welcome to freeCodeCamp! </p>
-
-<i> <span style="color:red">
-    Text content
-</span></i>
-
 ### Carga de datos
 
-Se procede a cargar el dataset en Bigquery sobre la capa 
+Se procede a crear las tablas en Bigquery sobre la capa bronze, utilizando la herramienta de creacion de tablas de Bigquery haciendo un upload de los archivos CSV.
+
+![image](https://github.com/alucero1096/Airline-Loyalty-Program/assets/58011032/6a0e0f6d-75f6-4632-b96e-ea4fead6a711)
+
