@@ -6,7 +6,7 @@ Proyecto de Data Analysis end-to-end, que incluye ETL, modelado de datos y visua
 
 Norther Light Airlines (NLA) es una aerolinea ficticia que realiza vuelos locales en Canada. Continuando con su objetivo por mantenerse entre las aerolineas lideres de la region, NLA realizo una campaña de promocion sobre su Programa de Membresia, destinada a impulsar la inscripción de nuevos miembros, que se extendio entre Febrero y Abril de 2018. La compañia recaudo datos y ahora busca conocer el impacto que genero la campaña.
 
-## Objetivos de negocio
+## Preguntas del negocio
 
 1. La campaña de promocion, ¿fue exitosa?
 
@@ -24,8 +24,8 @@ Norther Light Airlines (NLA) es una aerolinea ficticia que realiza vuelos locale
 - DER Modelado para usar en Power BI
 - Generar plan de metricas
 - Elaborar reporte en Power BI para responder los objetivos de negocio
-- Conclusiones
-- Oportunidades
+- Conclusiones del analisis
+- Oportunidades de mejora
 
 -----
 
@@ -333,7 +333,49 @@ IF (_porcentaje < 0, "red", "green")
 
 -----
 
-### Conclusiones 
+### Conclusiones del analisis
+
+A continuacion se describen conclusiones del analisis para responder a los preguntas del negocio.
+
+
+_1. La campaña de promocion, ¿fue exitosa?_
+
+Se puede concluir que fue exitosa en este sentido:
+El historico de altas en la membresia, muestra claramente el pico de altas en el periodo de la campaña (Feb-Abr-2018). 
+Ademas el promedio mensual de altas antes de la campaña era de 190 altas/mes, y durante la campaña subio un 69.8% , y post campaña se sostuvo en 250 altas/mes.
+
+![ ](https://github.com/alucero1096/Airline-Loyalty-Program/blob/main/assets/screenshots/PBI-historico-altas.png "Historico de Altas")
+
+
+_2. ¿Que impacto genero la campaña sobre el Programa de Membresia?_
+
+En el comparativo de altas 2018 vs 2017 se observa mes a mes que durante 2018 las altas fueron superiores al 2017
+
+![ ](https://github.com/alucero1096/Airline-Loyalty-Program/blob/main/assets/screenshots/PBI-altas-2018vs2017.png "YoY Altas 2018vs2017")
+
+La contribucion de la campaña al incremento de reserva de vuelos fue positiva. La cantidad de reservas de vuelos en 2018 se incremento un 27.9%
+
+![ ](https://github.com/alucero1096/Airline-Loyalty-Program/blob/main/assets/screenshots/PBI-reserva-vuelos.png "Contribucion en reserva de vuelos")
+
+El total facturado por reservas se incremento un 24.8% respecto del 2017
+
+Tambien se observaron incrementos en el acumulado de millas y en el canje de puntos 
+
+![ ](https://github.com/alucero1096/Airline-Loyalty-Program/blob/main/assets/screenshots/PBI-puntos-y-canje.png "Puntos Acumulados y Canje")
+
+_3. ¿La campaña resonó más entre ciertos grupos demográficos?_
+
+Nivel Educativo: entre los nuevos miembros, el 65% posee titulo de grado, con lo que se podria asumir que se tratan de adultos trabajadores, siende este un target importante para NLA ya que presentarian un flujo ingresos constante y "hambre" por los viajes.
+
+![ ](https://github.com/alucero1096/Airline-Loyalty-Program/blob/main/assets/screenshots/PBI-education.png "Nivel Educativo nuevos miembros")
+
+Estado Civil:  mas del 57% de los nuevos miembros incorporados durante la campaña son Casados, esto puede presumir reserva de vuelos en pareja (o mas si cuentan con hijos), dato importante tambien para alguna campaña de marketing orientada a este grupo.
+
+![ ](https://github.com/alucero1096/Airline-Loyalty-Program/blob/main/assets/screenshots/PBI-estado-civil.png "Estado Civil nuevos miembros")
+
+Ubicacion: Ontario, Quebec y British Columbia presentan los lugares con mayores incorporaciones a la membresia. 
+
+_4. ¿Cuál es la temporada más popular para que viajen los nuevos miembros?_
 
 -----
 
