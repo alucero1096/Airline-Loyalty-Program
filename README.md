@@ -373,9 +373,16 @@ Estado Civil:  mas del 57% de los nuevos miembros incorporados durante la campa�
 
 ![ ](https://github.com/alucero1096/Airline-Loyalty-Program/blob/main/assets/screenshots/PBI-estado-civil.png "Estado Civil nuevos miembros")
 
-Ubicacion: Ontario, Quebec y British Columbia presentan los lugares con mayores incorporaciones a la membresia. 
+Ubicacion: Ontario, Quebec y British Columbia presentan los lugares con mayores incorporaciones a la membresia, lo cual es esperado ya que aproximadamente el 85% de la poblacion de Canada se concentra en esas provincias.
+
+![ ](https://github.com/alucero1096/Airline-Loyalty-Program/blob/main/assets/screenshots/PBI-ubicacion.png "Ubicacion nuevos miembros")
 
 _4. ¿Cuál es la temporada más popular para que viajen los nuevos miembros?_
+
+Verano y Primavera son las epocas de ano en la que los nuevos miembros ingresados por campana han viajado.
+
+![ ](https://github.com/alucero1096/Airline-Loyalty-Program/blob/main/assets/screenshots/PBI-estacion-vuelos.png "Temporada de viajes nuevos miembros")
+
 
 -----
 
