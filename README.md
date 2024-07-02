@@ -89,11 +89,16 @@ Se procede a crear las tablas en Bigquery sobre la capa Bronze, utilizando la he
 
 -----
 
-### Curado de datos
+### Analisis exploratorio de datos (EDA)
 
-Se realizaron diversos controles para revisar la calidad de los datos. La tabla _flight-activity_ no presenta problemas en sus datos.
+Se realizaron diversos controles para revisar la calidad de los datos. 
 
-En cuanto a la tabla _loyalty-history_, se encontro que para la columna _Salary_ se encontraron 4,238 filas en nulo (25% del total). No se adopto ninguna estrategia para su tratamiento, puesto que dicho atributo se dejo fuera del analisis de este proyecto.
+La tabla _flight-activity_ no presenta problemas en sus datos. 
+Esta tabla contiene resumen de movimientos ocurridos en los años 2017 y 2018
+
+La tabla _loyalty-history_, se identifica univocamente por _Loyalty_Number_ 
+En la columna _Salary_ se encontraron 4,238 filas en nulo (25% del total). No se adopto ninguna estrategia para su tratamiento, puesto que dicho atributo se dejo fuera del analisis de este proyecto.
+El resto de los atributos no presentan problemas.
 
 -----
 
@@ -296,7 +301,7 @@ Se diseño en Figma el background utilizado en cada pagina
 
 Para la navegacion entre paginas se utilizaron botones con acciones para direccionar a las paginas correspondientes.
 
-Se utilizaron iconos de uso libre de la pagina [Flaticon](https://www.flaticon.com/)
+Se utilizaron iconos de uso libre del sitio [Flaticon](https://www.flaticon.com/)
 
 
 ![ ](https://github.com/alucero1096/Airline-Loyalty-Program/blob/main/assets/screenshots/PBI-pagina-impacto.png "Reporte - Pagina Impacto")
@@ -304,6 +309,7 @@ Se utilizaron iconos de uso libre de la pagina [Flaticon](https://www.flaticon.c
 En general se utilizaron las visualizaciones que provee por defecto PowerBI, salvo la visualizacion Tornado que se importo en la herramienta para visualizar el contraste de altas y bajas en los periodos Año.
 
 ![ ](https://github.com/alucero1096/Airline-Loyalty-Program/blob/main/assets/screenshots/PBI-tornado-viz.png "Visualizacion Tornado")
+
 
 #### Hack sobre las visualizaciones Tarjetas
 
@@ -408,7 +414,3 @@ Verano y Primavera son las epocas de ano en la que los nuevos miembros ingresado
 
 - Se podrian suponer algunos targets que el negocio quisiera alcanzar con la campaña de promocion (por ejemplo #esperado de nuevos miembros) para mostrarlos como KPIs
 - A nivel demografia de los miembros, realizar analisis por salarios (por ejemplo definiendo grupos por nivel de ingresos). Se deberia adoptar alguna estrategia para el curado de estos datos
-- 
-
-
-
