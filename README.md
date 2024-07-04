@@ -2,6 +2,14 @@
 
 Proyecto de Data Analysis end-to-end, que incluye ETL, modelado de datos y visualizacion en Power BI
 
+## Tecnologias y Herramientas
+| Bigquery | Power BI | [Figma](https://figma.com) | [dbdiagram.io](https://dbdiagram.io/home) |
+| --- | --- | --- | --- |
+| <img src="https://github.com/alucero1096/Programa-de-Membresias/blob/main/assets/icons/bigquery.png" width="40" height="40"> | <img src="https://github.com/alucero1096/Programa-de-Membresias/blob/main/assets/icons/PBI-Desktop.png"  width="40" height="40"> | <img src="https://github.com/alucero1096/Programa-de-Membresias/blob/main/assets/icons/figma.png" width="40" height="40"> | <img src="https://github.com/alucero1096/Programa-de-Membresias/blob/main/assets/icons/dbdiagram-io.png" width="40" height="40"> |
+
+
+-----
+
 ## Caso de analisis
 
 Norther Light Airlines (NLA) es una aerolinea ficticia que realiza vuelos locales en Canada. Continuando con su objetivo por mantenerse entre las aerolineas lideres de la region, NLA realizo una campaña de promocion sobre su Programa de Membresia, destinada a impulsar la inscripción de nuevos miembros, que se extendio entre Febrero y Abril de 2018. La compañia recaudo datos y ahora busca conocer el impacto que genero la campaña.
@@ -83,9 +91,10 @@ Con tal fin, se crean en BigQuery los respectivos datasets  _Loyalty-bronze_ y _
 
 Se procede a crear las tablas en Bigquery sobre la capa Bronze, utilizando la herramienta de creacion de tablas de Bigquery haciendo un upload de los archivos CSV.
 
-![Tabla flight-activity cargada en dataset bronze](https://github.com/alucero1096/Airline-Loyalty-Program/blob/main/assets/screenshots/flight-activity-bronze.png "Tabla flight-activity cargada en dataset bronze")
+<img src="https://github.com/alucero1096/Airline-Loyalty-Program/blob/main/assets/screenshots/flight-activity-bronze.png" width="640" height="480">
 
-![Tabla loyalty-history cargada en dataset bronze](https://github.com/alucero1096/Airline-Loyalty-Program/blob/main/assets/screenshots/loyalty-history-bronze.png "Tabla loyalty-history cargada en dataset bronze")
+<img src="https://github.com/alucero1096/Airline-Loyalty-Program/blob/main/assets/screenshots/loyalty-history-bronze.png" width="640" height="480">
+
 
 -----
 
@@ -308,14 +317,15 @@ Se utilizaron iconos de uso libre del sitio [Flaticon](https://www.flaticon.com/
 
 En general se utilizaron las visualizaciones que provee por defecto PowerBI, salvo la visualizacion Tornado que se importo en la herramienta para visualizar el contraste de altas y bajas en los periodos Año.
 
-![ ](https://github.com/alucero1096/Airline-Loyalty-Program/blob/main/assets/screenshots/PBI-tornado-viz.png "Visualizacion Tornado")
+<img src="https://github.com/alucero1096/Airline-Loyalty-Program/blob/main/assets/screenshots/PBI-tornado-viz.png" width="320" height="240">
 
 
 #### Hack sobre las visualizaciones Tarjetas
 
 En algunas visualizaciones de tipo Tarjeta, se utilizo la opcion de agregar etiquetas de referencia para contrastar valores y mostrar diferencia porcentual destacada por formato con colores rojo/verde segun valor porcentaje.
 
-![ ](https://github.com/alucero1096/Airline-Loyalty-Program/blob/main/assets/screenshots/PBI-tarjeta-viz.png "Viz tipo Tarjeta")
+<img src="https://github.com/alucero1096/Airline-Loyalty-Program/blob/main/assets/screenshots/PBI-tarjeta-viz.png" width="280" height="280">
+
 
 En este caso, para la tarjeta que se muestra arriba, la proporcion porcentual se calculo definiendo la metrica que se muestra a continuacion, que retorna un texto con el valor del porcentaje y el caracter ↑ ó ↓ segun corresponda si la proporcion es positiva o negativa, 
 
@@ -391,21 +401,28 @@ _3. ¿La campaña resonó más entre ciertos grupos demográficos?_
 
 Nivel Educativo: entre los nuevos miembros, el 65% posee titulo de grado, con lo que se podria asumir que se tratan de adultos trabajadores, siende este un target importante para NLA ya que presentarian un flujo ingresos constante y "hambre" por los viajes.
 
-![ ](https://github.com/alucero1096/Airline-Loyalty-Program/blob/main/assets/screenshots/PBI-education.png "Nivel Educativo nuevos miembros")
+<img src="https://github.com/alucero1096/Airline-Loyalty-Program/blob/main/assets/screenshots/PBI-education.png" width="320" height="320">
+
+
 
 Estado Civil:  mas del 57% de los nuevos miembros incorporados durante la campaña son Casados, esto puede presumir reserva de vuelos en pareja (o mas si cuentan con hijos), dato importante tambien para alguna campaña de marketing orientada a este grupo.
 
-![ ](https://github.com/alucero1096/Airline-Loyalty-Program/blob/main/assets/screenshots/PBI-estado-civil.png "Estado Civil nuevos miembros")
+<img src="https://github.com/alucero1096/Airline-Loyalty-Program/blob/main/assets/screenshots/PBI-estado-civil.png" width="380" height="320">
+
+
 
 Ubicacion: Ontario, Quebec y British Columbia presentan los lugares con mayores incorporaciones a la membresia, lo cual es esperado ya que aproximadamente el 85% de la poblacion de Canada se concentra en esas provincias.
 
-![ ](https://github.com/alucero1096/Airline-Loyalty-Program/blob/main/assets/screenshots/PBI-ubicacion.png "Ubicacion nuevos miembros")
+<img src="https://github.com/alucero1096/Airline-Loyalty-Program/blob/main/assets/screenshots/PBI-ubicacion.png" width="640" height="480">
+
+
 
 _4. ¿Cuál es la temporada más popular para que viajen los nuevos miembros?_
 
 Verano y Primavera son las epocas de ano en la que los nuevos miembros ingresados por campana han viajado.
 
-![ ](https://github.com/alucero1096/Airline-Loyalty-Program/blob/main/assets/screenshots/PBI-estacion-vuelos.png "Temporada de viajes nuevos miembros")
+<img src="https://github.com/alucero1096/Airline-Loyalty-Program/blob/main/assets/screenshots/PBI-estacion-vuelos.png" width="320" height="320">
+
 
 
 -----
@@ -414,3 +431,6 @@ Verano y Primavera son las epocas de ano en la que los nuevos miembros ingresado
 
 - Se podrian suponer algunos targets que el negocio quisiera alcanzar con la campaña de promocion (por ejemplo #esperado de nuevos miembros) para mostrarlos como KPIs
 - A nivel demografia de los miembros, realizar analisis por salarios (por ejemplo definiendo grupos por nivel de ingresos). Se deberia adoptar alguna estrategia para el curado de estos datos
+
+## Keywords
+Bigquery, SQL, PowerBI, DAX, Power Query, Figma, dbdiagrams.io
